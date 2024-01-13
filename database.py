@@ -34,7 +34,8 @@ def delete_data():
     confirm = messagebox.askyesno("Confirmation", "Are you sure you want to delete all data?")
     if confirm:
         # Delete the data from the SQLite database
-        table.delete(table.rows)
+        rows_to_delete = list(table.rows)
+        table.delete(rows_to_delete)
         # Show a success message
         messagebox.showinfo("Success", "Data has been deleted")
     
