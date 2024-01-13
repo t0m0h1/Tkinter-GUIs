@@ -1,24 +1,28 @@
+import sqlite_utils
 import tkinter as tk
-#from PIL import ImageTk, Image
-import sqlite3
+from tkinter import messagebox
 
+# Initialize the SQLite database
+db = sqlite_utils.Database("my_database.db")
+table = db.table("my_table", pk="id")
+
+# Initialize the Tkinter window
 root = tk.Tk()
-root.title('Not sure yet')
-root.iconbitmap('c:/gui/codemy.ico')
+root.title("Database")
 root.geometry("400x400")
 
-# Create a database or connect to one
-connection = sqlite3.connect('address_book.db')
+# Create a form to input data
+entry = tk.Entry(root)
+entry.pack()
 
-# Create cursor
-# A cursor is a control structure that enables traversal over the records in a database.
-# Cursors facilitate subsequent processing in conjunction with the traversal, such as retrieval, addition and removal of database records.
-c = connection.cursor()
+def submit_data():
+    # When the form is submitted, insert the data into the SQLite database
+    table.insert({"data": entry.get()})
+    # Show a success message
+    messagebox.showinfo("Success", "Data inserted successfully")
 
-
-#commit the changes to db
-connection.commit()
-
+# Create a submit button
+submit_button = tk.Button(root, text="Submit", command=submit_data)
+submit_button.pack()
 
 root.mainloop()
-
