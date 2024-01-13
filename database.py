@@ -21,8 +21,22 @@ def submit_data():
     # Show a success message
     messagebox.showinfo("Success", "Data inserted successfully")
 
+def show_data():
+    # Get all the data from the SQLite database
+    data = table.all()
+    # Show the data in a message box
+    messagebox.showinfo("Data", data)
+
 # Create a submit button
 submit_button = tk.Button(root, text="Submit", command=submit_data)
 submit_button.pack()
 
+# Create a show button
+show_button = tk.Button(root, text="Show", command=show_data)
+show_button.grid(column=0, row=1)
+
 root.mainloop()
+
+
+
+
