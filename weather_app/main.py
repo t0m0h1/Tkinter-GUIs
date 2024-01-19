@@ -22,14 +22,20 @@ def search():
 label1 = tk.Label(root, text="Enter the city: ")
 label1.pack()
 
+# create an entry for the city
 city_text = tk.StringVar()
 city_entry = tk.Entry(root, textvariable=city_text)
 city_entry.pack()
 
+# create a button for searching the weather
+search_button = tk.Button(root, text="Search Weather", command=lambda: get_weather(city_text.get()))
+search_button.pack()
 
-search = tk.Button(root, text="Search Weather", command=lambda: get_weather(city_text.get()))
-search.pack()
+# create a label for the weather
+location_label = tk.Label(root, text="Location", font=("bold", 20))
+location_label.pack()
 
+image = tk.Label(root, bitmap="")
 
 
 
