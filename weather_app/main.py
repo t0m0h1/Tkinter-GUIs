@@ -13,8 +13,26 @@ root.title("Weather App")
 # set the size of the window
 root.geometry("400x400")
 
+
+def search():
+    pass
+
+
 # create a label
 label1 = tk.Label(root, text="Enter the city: ")
 label1.pack()
+
+city_text = tk.StringVar()
+city_entry = tk.Entry(root, textvariable=city_text)
+city_entry.pack()
+
+
+search = tk.Button(root, text="Search Weather", command=lambda: get_weather(city_text.get()))
+search.pack()
+
+
+
+
+
 
 root.mainloop()
