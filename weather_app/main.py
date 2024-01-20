@@ -5,7 +5,10 @@ import requests
 import bs4 as bs  # BeautifulSoup4
 
 
+api_url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
+
 api_key = "f16b10d7231140c354ada2715abc9b35"
+
 
 # create a window
 root = tk.Tk()
