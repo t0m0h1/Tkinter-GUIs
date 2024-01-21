@@ -29,9 +29,6 @@ root.title("Weather App")
 root.geometry("400x400")
 
 
-def search():
-    pass
-
 def get_weather(city):
     result = requests.get(api_url.format(city, api_key))
     if result:
@@ -50,6 +47,17 @@ def get_weather(city):
         return None
 
 print(get_weather("London"))
+
+def search():
+    city = city_text.get()
+    weather = get_weather(city)
+    if weather:
+        location_label["text"] = "{}, {}".format(weather[0], weather[1])
+        image["bitmap"] = "weather_icons/{}.png".format(weather[4])
+        temperature_label["text"] = "{:.2f}°C, {:.2f}°F".format(weather[2], weather[3])
+        weather_label["text"] = weather[5]
+    else:
+        location_label["text"] = "Error: City not found!"
 
 
 # create a label
