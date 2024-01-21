@@ -39,6 +39,9 @@ def get_weather(city):
     else:
         return None
 
+print(get_weather("London"))
+
+
 # create a label
 label1 = tk.Label(root, text="Enter the city: ")
 label1.pack()
@@ -49,7 +52,7 @@ city_entry = tk.Entry(root, textvariable=city_text)
 city_entry.pack()
 
 # create a button for searching the weather
-search_button = tk.Button(root, text="", command=lambda: get_weather(city_text.get()))
+search_button = tk.Button(root, text="Search", command=lambda: get_weather(city_text.get()))
 search_button.pack()
 
 # create a label for the weather
