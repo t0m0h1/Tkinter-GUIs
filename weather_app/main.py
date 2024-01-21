@@ -52,12 +52,9 @@ def search():
     city = city_text.get()
     weather = get_weather(city)
     if weather:
-        location_label["text"] = "{}, {}".format(weather[0], weather[1])
-        image["bitmap"] = "weather_icons/{}.png".format(weather[4])
-        temperature_label["text"] = "{:.2f}°C, {:.2f}°F".format(weather[2], weather[3])
-        weather_label["text"] = weather[5]
+        pass
     else:
-        location_label["text"] = "Error: City not found!"
+        tk.messagebox.showerror(f"Error", "Cannot find city {city}")
 
 
 # create a label
