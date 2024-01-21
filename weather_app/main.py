@@ -8,7 +8,7 @@ from configparser import ConfigParser # to read the api key from the config file
 
 
 api_url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
-api_key = "f16b10d7231140c354ada2715abc9b35"
+
 
 # config file
 config_file = "config.ini"
@@ -52,7 +52,7 @@ def search():
     try:
         weather = get_weather(city)
         location_label["text"] = f"{weather[0]}, {weather[1]}"
-        image["bitmap"] = "images/{}.png".format(weather[4])
+        image["bitmap"] = "../images/{}.png".format(weather[4])
         temperature_label["text"] = f"{weather[2]:.2f}°C, {weather[3]:.2f}°F"
         weather_label["text"] = weather[5]
     except Exception as e:
