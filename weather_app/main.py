@@ -91,12 +91,5 @@ weather_label = tk.Label(root, text="")
 weather_label.pack()
 
 
-
-
-
-
-
-
-
-
+# run the app
 root.mainloop()
