@@ -33,6 +33,10 @@ def search():
 
 def get_weather(city):
     result = requests.get(api_url.format(city, api_key))
+    if result:
+        print(result.content)
+    else:
+        return None
 
 # create a label
 label1 = tk.Label(root, text="Enter the city: ")
