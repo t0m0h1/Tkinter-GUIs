@@ -42,6 +42,10 @@ def get_weather(city):
         temp_kelvin = json["main"]["temp"] # temperature in kelvin to be converted to celsius
         temp_celsius = temp_kelvin - 273.15
         temp_farenheit = (temp_kelvin - 273.15) * 9/5 + 32 # temperature conversion formula
+        icon = json["weather"]["icon"]
+        weather = json["weather"]["main"]
+        final = (city, country, temp_celsius, temp_farenheit, icon, weather)
+        return final
 
     else:
         return None
