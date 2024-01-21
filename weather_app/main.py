@@ -13,7 +13,8 @@ api_key = "f16b10d7231140c354ada2715abc9b35"
 config_file = "config.ini"
 config = ConfigParser()
 config.read(config_file)
-config_api_key = config[api_key]
+section = config["openweathermap"]
+api_key = section["api_key"]
 
 
 
