@@ -7,7 +7,6 @@ from configparser import ConfigParser # to read the api key from the config file
 
 
 api_url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
-
 api_key = "f16b10d7231140c354ada2715abc9b35"
 
 # config file
@@ -15,6 +14,8 @@ config_file = "config.ini"
 config = ConfigParser()
 config.read(config_file)
 config_api_key = config[api_key]
+
+
 
 
 # create a window
@@ -30,9 +31,8 @@ root.geometry("400x400")
 def search():
     pass
 
-def display_weather():
-    pass
-
+def get_weather(city):
+    result = requests.get(api_url.format(city, api_key))
 
 # create a label
 label1 = tk.Label(root, text="Enter the city: ")
