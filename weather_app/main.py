@@ -35,7 +35,14 @@ def search():
 def get_weather(city):
     result = requests.get(api_url.format(city, api_key))
     if result:
-        print(result.content)
+        json = result.json()
+        # city, country, temp_celsius, temp_fahrenheit, icon, weather etc
+        city = json["name"]
+        country = json["sys"]["country"]
+        temp_kelvin = json["main"]["temp"] # temperature in kelvin to be converted to celsius
+        temp_celsius = temp_kelvin - 273.15
+        temp_farenheit = (temp_kelvin - 273.15) * 9/5 + 32 # temperature conversion formula
+
     else:
         return None
 
