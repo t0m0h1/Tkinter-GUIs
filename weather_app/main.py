@@ -3,17 +3,24 @@
 import tkinter as tk
 import requests
 import bs4 as bs  # BeautifulSoup4
+from configparser import ConfigParser # to read the api key from the config file
 
 
 api_url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
 
 api_key = "f16b10d7231140c354ada2715abc9b35"
 
+# config file
+config_file = "config.ini"
+config = ConfigParser()
+config.read(config_file)
+config_api_key = config[api_key]
+
 
 # create a window
 root = tk.Tk()
 
-# set the title
+# set the title 
 root.title("Weather App")
 
 # set the size of the window
