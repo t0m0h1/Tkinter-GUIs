@@ -53,13 +53,13 @@ def search():
     weather = get_weather(city)
     if weather:
         location_label["text"] = f"{weather[0]}, {weather[1]}"
-        image["bitmap"] = f"images/{weather[4]}.png"
+        image["bitmap"] = "images/{}.png".format(weather[4])
         temperature_label["text"] = f"{weather[2]:.2f}°C, {weather[3]:.2f}°F"
         weather_label["text"] = weather[5]
     else:
         tk.messagebox.showerror(f"Error", "Cannot find city {city}")
 
-
+ 
 # create a label
 label1 = tk.Label(root, text="Enter the city: ")
 label1.pack()
@@ -70,7 +70,7 @@ city_entry = tk.Entry(root, textvariable=city_text)
 city_entry.pack()
 
 # create a button for searching the weather
-search_button = tk.Button(root, text="Search", command=lambda: get_weather(city_text.get()))
+search_button = tk.Button(root, text="Search", command=search)
 search_button.pack()
 
 # create a label for the weather
