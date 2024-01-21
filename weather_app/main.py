@@ -45,8 +45,7 @@ def get_weather(city):
         icon = json["weather"]["icon"]
         weather = json["weather"]["main"]
         final = (city, country, temp_celsius, temp_farenheit, icon, weather)
-        return final
-
+        return final # return the tuple
     else:
         return None
 
