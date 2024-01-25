@@ -2,7 +2,6 @@ import tkinter as tk
 import numpy as np
 
 root = tk.Tk()
-root.geometry("250x200")
 root.title("Expense Tracker")
 root.resizable(False, False)
 
@@ -15,8 +14,8 @@ def add_expenses():
     print(expense_list)
     print(np.sum(expense_list))
     expenses_label.config(text=f"Expenses:  £ {np.sum(expense_list)}")
-    expenses_label.grid(column=0, row=4)
-    expenses_entry.grid(column=1, row=0)
+    expenses_label.grid(column=1, row=4)
+    expenses_entry.grid(column=1, row=1)
     add_expenses_button.grid(column=1, row=3)
     return expense_list
 
@@ -26,18 +25,29 @@ def clear():
 
 
 
+add_expenses_label = tk.Label(root, text="Add Expenses :", font=("Helvetica", 16))
+add_expenses_label.grid(column=1, row=0, pady=10)
+
 
 expenses_label = tk.Label(root, text="", font=("Helvetica", 16))
 
 
 expenses_entry = tk.Entry(root, font=("Helvetica", 16))
-expenses_entry.grid(column=1, row=0, columnspan=2)
+expenses_entry.grid(column=1, row=1, columnspan=2, pady=10)
 
 add_expenses_button = tk.Button(root, text="Add", font=("Helvetica", 16), command=add_expenses)
 add_expenses_button.grid(column=1, row=3)
 
 
 clear_button = tk.Button(root, text="Clear", font=("Helvetica", 16), command=clear)
-clear_button.grid(column=1, row=4)
+clear_button.grid(column=2, row=3)
+
+
+
+
+
+
+
+
 
 root.mainloop()
