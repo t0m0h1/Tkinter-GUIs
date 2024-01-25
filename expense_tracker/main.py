@@ -21,7 +21,9 @@ def add_expenses():
 
 
 def clear():
-    total_expenses_label.config(text="Expenses: ")
+    total_expenses_label.config(text="Total:  £ 0.00")
+    expenses_entry.delete(0, tk.END)
+    expense_list.clear()
 
 
 
