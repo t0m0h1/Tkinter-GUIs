@@ -16,7 +16,7 @@ def add_expenses():
     total_expenses_label.config(text=f"Total:  £ {np.sum(expense_list)}")
     total_expenses_label.grid(column=1, row=4)
     expenses_entry.grid(column=1, row=1)
-    add_expenses_button.place(x=0, y=90)
+    add_expenses_button.grid(column=1, row=3)
     return expense_list
 
 
@@ -36,7 +36,7 @@ expenses_entry = tk.Entry(root, font=("Helvetica", 16))
 expenses_entry.grid(column=1, row=1, columnspan=2, pady=10)
 
 add_expenses_button = tk.Button(root, text="Add", font=("Helvetica", 16), command=add_expenses)
-add_expenses_button.place(x=0, y=90)
+add_expenses_button.grid(column=1, row=3)
 
 
 clear_button = tk.Button(root, text="Clear", font=("Helvetica", 16), command=clear)
