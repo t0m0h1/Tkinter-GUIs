@@ -2,6 +2,10 @@ import tkinter as tk
 import numpy as np
 
 root = tk.Tk()
+root.geometry("500x500")
+root.title("Expense Tracker")
+root.resizable(False, False)
+
 expense_list = []
 
 def add_expenses():
